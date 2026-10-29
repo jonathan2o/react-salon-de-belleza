@@ -1,0 +1,11 @@
+{
+  "name": "react-salon-de-belleza-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm start --prefix frontend",
+    "start": "npm start --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "test": "npm test --prefix frontend"
+  }
+}

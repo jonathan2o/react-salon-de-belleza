@@ -1,0 +1,367 @@
+.horario-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: inherit;
+  color: var(--text-primary);
+}
+
+.horario-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.horario-selector-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.horario-selector {
+  background: rgba(30, 30, 40, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  padding: 12px 40px 12px 24px;
+  border-radius: 8px;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  min-width: 280px;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.horario-selector:hover, .horario-selector:focus {
+  border-color: var(--accent-lavender);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
+.horario-selector-icon {
+  position: absolute;
+  right: 50%;
+  transform: translateX(130px);
+  top: 50%;
+  margin-top: -12px;
+  pointer-events: none;
+  font-size: 0.8rem;
+  color: var(--accent-lavender);
+  display: flex;
+  align-items: center;
+  height: 24px;
+}
+
+/* Calendar */
+.horario-calendar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  background: rgba(20, 20, 30, 0.5);
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+}
+
+.horario-month-year {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.horario-week-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.horario-nav-btn {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: var(--accent-lavender);
+  font-size: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.horario-nav-btn:hover {
+  background: var(--accent-lavender);
+  color: white;
+}
+
+.horario-days-container {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  justify-content: center;
+  overflow-x: auto;
+  padding-bottom: 5px; /* for potential scrollbar */
+}
+.horario-days-container::-webkit-scrollbar {
+  height: 4px;
+}
+.horario-days-container::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 4px;
+}
+
+.horario-day-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(40, 40, 50, 0.6);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 12px 10px;
+  cursor: pointer;
+  min-width: 75px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.horario-day-card:hover {
+  background: rgba(60, 60, 75, 0.8);
+}
+.horario-day-card.selected {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: var(--accent-lavender);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+}
+
+.horario-hoy-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--accent-lavender);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.horario-day-name {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.horario-day-card.selected .horario-day-name {
+  color: var(--text-primary);
+}
+
+.horario-day-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.horario-counter {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* Table */
+.horario-table-wrapper {
+  overflow-x: auto;
+  background: rgba(25, 25, 35, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.horario-table-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.horario-table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.5);
+  border-radius: 4px;
+}
+
+.horario-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.horario-table th, .horario-table td {
+  padding: 16px 24px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.horario-table th {
+  background: rgba(20, 20, 30, 0.98);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+.horario-table tr {
+  transition: background 0.2s ease;
+}
+.horario-table tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+.horario-table tr:last-child td {
+  border-bottom: none;
+}
+
+.horario-table td {
+  font-size: 1rem;
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+/* Cell styles */
+.horario-cell-hora {
+  font-weight: bold;
+  color: var(--accent-lavender);
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.horario-cell-cliente {
+  font-weight: 500;
+}
+
+.horario-cell-tiempo {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* Background Service in cell */
+.horario-service-bg {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.horario-service-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.horario-service-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+}
+
+.horario-service-text {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+/* Past appointments */
+.horario-cita-pasada {
+  opacity: 0.55;
+}
+.horario-cita-pasada .horario-service-bg-overlay {
+  background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 100%);
+}
+.horario-cita-pasada .horario-cell-hora {
+  color: var(--text-muted);
+}
+
+/* Empty state */
+.horario-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  background: rgba(25, 25, 35, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.horario-empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  display: block;
+}
+.horario-empty-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .horario-days-container {
+    gap: 8px;
+  }
+  .horario-day-card {
+    min-width: 60px;
+    padding: 10px 8px;
+  }
+  .horario-day-number {
+    font-size: 1.3rem;
+  }
+  .horario-table th, .horario-table td {
+    padding: 12px 16px;
+  }
+}
+@media (max-width: 480px) {
+  .horario-title {
+    font-size: 1.5rem;
+  }
+  .horario-selector {
+    min-width: 200px;
+    padding-left: 16px;
+    padding-right: 30px;
+  }
+  .horario-selector-icon {
+    transform: translateX(90px);
+  }
+  .horario-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+}

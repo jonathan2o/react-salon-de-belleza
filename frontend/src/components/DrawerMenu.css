@@ -1,0 +1,244 @@
+/* DrawerMenu.css */
+
+/* Botón Hamburguesa Flotante */
+.drawer-toggle-btn {
+  position: fixed; /* Mantiene el botón visible al hacer scroll */
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(15, 10, 30, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.drawer-toggle-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  transform: scale(1.05);
+}
+
+/* Overlay / Fondo Desenfocado */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4); /* Oscurecimiento ligero */
+  backdrop-filter: blur(5px);     /* Desenfoque del fondo */
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Contenedor del Panel Lateral */
+.drawer-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 320px;
+  background: #08080c; /* Muy oscuro */
+  border-right: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.8);
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.drawer-container.open {
+  transform: translateX(0);
+}
+
+/* Header del Drawer */
+.drawer-header {
+  padding: 30px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.drawer-brand {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.drawer-subbrand {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.drawer-header-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.8) 0%, rgba(139, 92, 246, 0) 100%);
+  margin-top: 15px;
+}
+
+/* Lista de Navegación */
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  flex-grow: 1;
+  gap: 4px;
+}
+
+/* Items del Menú */
+.drawer-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  text-align: left;
+}
+
+.drawer-item-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease;
+}
+
+.drawer-item-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+  color: rgba(139, 92, 246, 0.7);
+  transition: color 0.2s ease;
+}
+
+/* Hover Effect */
+.drawer-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.drawer-item:hover .drawer-item-content {
+  color: white;
+}
+
+.drawer-item:hover .drawer-item-icon {
+  color: #8B5CF6; /* Brillo morado al hacer hover */
+}
+
+.drawer-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  height: 80%;
+  width: 3px;
+  background: #8B5CF6;
+  border-radius: 0 4px 4px 0;
+  opacity: 0;
+  box-shadow: 0 0 8px #8B5CF6;
+  transition: opacity 0.2s ease;
+}
+
+.drawer-item:hover::before {
+  opacity: 1;
+}
+
+/* Active/Selected Effect */
+.drawer-item.active {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.drawer-item.active .drawer-item-content {
+  color: #8B5CF6;
+  font-weight: 600;
+}
+
+.drawer-item.active .drawer-item-icon {
+  color: #8B5CF6;
+}
+
+.drawer-item.active::before {
+  opacity: 1;
+  background: #8B5CF6;
+  box-shadow: 0 0 10px #8B5CF6;
+}
+
+/* Badge Próximamente */
+.drawer-badge {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 4px;
+  margin-left: 38px; /* Alinear con el texto, saltando el icono */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Elementos inactivos (Planes, QR) */
+.drawer-item.inactive {
+  cursor: default;
+}
+
+.drawer-item.inactive:hover {
+  background: transparent;
+}
+
+.drawer-item.inactive:hover::before {
+  opacity: 0;
+}
+
+.drawer-item.inactive:hover .drawer-item-content {
+  color: rgba(255, 255, 255, 0.85); /* No cambia de color en hover */
+}
+
+.drawer-item.inactive:hover .drawer-item-icon {
+  color: rgba(139, 92, 246, 0.7);
+}
+
+/* Footer del Drawer */
+.drawer-footer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive Móvil */
+@media (max-width: 768px) {
+  .drawer-container {
+    width: 75%; /* Ocupa ~75% de la pantalla para dejar ver el fondo */
+  }
+}
